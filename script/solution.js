@@ -10,7 +10,7 @@ twosum (nums, target) {
     }
   }
   return arr
-},
+}
 
 // 整数翻转
 reverse (x) {
@@ -22,7 +22,7 @@ reverse (x) {
     x = parseInt(x / 10)
   }
   return y < min || y > max ? 0 : y
-},
+}
 
 // 回文数
 isPalindrome (x) {
@@ -32,7 +32,7 @@ isPalindrome (x) {
   } else {
     return false
   }
-},
+}
 
 // 罗马数字转换成整数
 romanToInt (s) {
