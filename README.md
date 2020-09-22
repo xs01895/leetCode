@@ -40,6 +40,22 @@ _整理一点我自己的解题思路_
       return x.toString() === y    
     }
 
+## `12. intToRoman` 整数转换成罗马数字
+我一开始想要用 while 循环对 num 取余数依次取出对应数位上的数，后来还是避免不不了重复的判断900、400、90…等特殊数字，看了评论采用减法比较比较当前的值和要匹配的罗马数字，恍然大悟
+***
+    intToRoman (num) {
+      let s = ''
+      const nums = [1000, 900, 500, 400, 100, 90, 50, 40, 10 , 9, 5, 4, 1]
+      const romans = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+      for (let i = 0; i < nums.length; i++) {
+        while (num >= nums[i]) {
+          num -= nums[i]
+          s += romans[i]
+        }
+      }
+      return s
+    }
+
 ## `13. romanToInt` 罗马数字转换整数
 罗马数字字符串遍历相加，因为罗马数字有一定的规则，所以只需要考虑4、9、40、90、400、900这几个特殊数字即可，对于 java 和 JavaScript 而言，可以将其中的特殊字符替换成自定义的‘罗马数字’，或者是以 hashMap 的形式去比较每个字符与左右的关系，左减右加
 ***

@@ -34,6 +34,20 @@ isPalindrome (x) {
   }
 }
 
+//  整数转罗马数字
+intToRoman (num) {
+  let s = ''
+  const nums = [1000, 900, 500, 400, 100, 90, 50, 40, 10 , 9, 5, 4, 1]
+  const romans = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+  for (let i = 0; i < nums.length; i++) {
+    while (num >= nums[i]) {
+      num -= nums[i]
+      s += romans[i]
+    }
+  }
+  return s
+}
+
 // 罗马数字转换成整数
 romanToInt (s) {
   let newStr = s.replace('IV', 'A').replace('IX', 'B').replace('XL', 'E').replace('XC', 'F').replace('CD', 'H').replace('CM', 'J')
