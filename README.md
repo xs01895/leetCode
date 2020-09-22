@@ -108,3 +108,31 @@ _整理一点我自己的解题思路_
       return x
     }
 
+## `14. longestCommonPrefix` 最长字符前缀
+我的思路是取字符串数组第一个元素，依次截取字符串，然后采用 indexOf 对比
+也可以采用双 for 循环，每次只比较1个字符，正确就塞，不正确就 return
+***
+    longestCommonPrefix (strs) {
+      let s = ''
+      let str = ''
+      let arr = []
+      if (strs[0]) {
+        for (let i = 0; i <= strs[0].length; i++) {
+          let m = 0
+          s = strs[0].slice(0, i)
+          for (let k = 0; k < strs.length; k++) {
+            if (strs[k].indexOf(s) === 0) {
+              m++
+            }
+          }
+          if (m === strs.length) {
+            arr.push(s)
+          }
+        }
+      }
+      if (arr.length > 0) {
+        str = arr[arr.length - 1]
+      }
+      return str
+    }
+
