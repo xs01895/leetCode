@@ -122,3 +122,15 @@ longestCommonPrefix (strs) {
   }
   return str
 }
+
+// 20. 有效的括号
+isValid (s) {
+  var length = s.length
+  while (length > 0) {
+    let a = s.replace('{}', '').replace('[]', '').replace('()', '')
+    if (a === s) break
+    s = a
+    length = a.length
+  }
+  return s === ''
+}

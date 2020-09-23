@@ -136,3 +136,17 @@ _整理一点我自己的解题思路_
       return str
     }
 
+## `20. isValid` 有效的括号
+这题的思路很简单，因为要求括号必须是以相同的类型闭合，并且保证正确的顺序，那么就简单了，假设字符串里含有一组括号是符合条件的。那就先把这组符合条件的删掉，在比较剩下的字符串，循环的思想，直至字符串删为空，或者字符串不在改变的时候，循环结束
+***
+    isValid (s) {
+      var length = s.length
+      while (length > 0) {
+        let a = s.replace('{}', '').replace('[]', '').replace('()', '')
+        if (a === s) break
+        s = a
+        length = a.length
+      }
+      return s === ''
+    }
+
